@@ -303,6 +303,12 @@ Color.prototype = {
 		return rgb;
 	},
 
+	light: function (pct) {
+		var hsl = this.hsl();
+		hsl.color[2] = pct;
+		return hsl;
+	},
+
 	lighten: function (ratio) {
 		var hsl = this.hsl();
 		hsl.color[2] += hsl.color[2] * ratio;
@@ -312,6 +318,12 @@ Color.prototype = {
 	darken: function (ratio) {
 		var hsl = this.hsl();
 		hsl.color[2] -= hsl.color[2] * ratio;
+		return hsl;
+	},
+
+	tint: function (pct) {
+		var hsl = this.hsl();
+		hsl.color[1] = pct;
 		return hsl;
 	},
 
